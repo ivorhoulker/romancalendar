@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+.content {
+        width: 50%;
+        height: 20%;
+        position:absolute; /*it can be fixed too*/
+        left:0; right:0;
+        top:0; bottom:0;
+        margin:auto;
+        padding:20px;
+        max-width:100%;
+        max-height:100%;
+        overflow:auto;
+    }
+
+#float {
+	width: 100%;
+	height: 100%;
+	padding:0px;
+	margin:auto;
+	float:left;
+}
+
+#demo {
+	font-weight:bolder;
+	text-align:center;
+	padding-top:10px;
+}
+
+input[type=date], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background-color: #303F9F;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3949AB;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+
+<body>
+<div class="content">
+<div id="float">
+<form id="frm1" action="/action_page.php">
+ 		<input type="date" id="formDate" name="date"
+       value="2018-07-22"
+       min="0-01-01" max="3000-12-31">
+</form> 
+
+<button onclick="myFunction()">Get Roman Date</button>
+
+<p id="demo"></p>
+</div>
+</div>
+
+<script src="romanjava.js"></script>
+<script>
+	
+function myFunction() {
+  let dateControl = document.querySelector('input[id="formDate"]');
+  let plainDate = dateControl.value;
+  let year = plainDate.split('-')[0];
+  let month = plainDate.split('-')[1];
+  let day = plainDate.split('-')[2]
+
+  let output = dateFromInput(year, month, day)
+
+ document.getElementById("demo").innerHTML = output
+}
+
+</script>
+
+
+
+</body>
+</html>
